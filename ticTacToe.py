@@ -82,8 +82,13 @@ def player_choice(board):
     position = 0
     
     while not space_check(board,position) or position not in [1,2,3,4,5,6,7,8,9]:
-        position = int(input("Enter a position from 1 to 9 on the board(1 is bottom left corner, 9 is top right corner): "))
-    
+            try:
+                position = int(input("Enter a position from 1 to 9 on the board(1 is bottom left corner, 9 is top right corner): "))
+                if (space_check(board,position)) == False:
+                    print("This space is not available. Try again!")
+            except:
+                print("This is not a number from 1 to 9! Try again!")
+
     return position
 
 # player chooses whether to replay the game or not 
